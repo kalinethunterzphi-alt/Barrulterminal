@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hey Mayla</title>
+
+<style>
+body{
+  background:#0a0f16;
+  color:#8be9fd;
+  font-family: Consolas, monospace;
+  height:100vh;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+#terminal{
+  width:90%;
+  max-width:720px;
+  background:#02080e;
+  border:1px solid #1f6feb;
+  border-radius:10px;
+  box-shadow:0 0 20px rgba(31,111,235,0.3);
+  padding:20px;
+  position:relative;
+  z-index:5;
+}
+
+.line{
+  margin:6px 0;
+  opacity:0;
+  white-space:pre;
+}
+
+.cursor{
+  display:inline-block;
+  width:8px;
+  background:#8be9fd;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+/* binary heart */
+#binary{
+  color:#ff2d75;
+  opacity:0.9;
+  text-shadow:0 0 8px #ff2d75;
+  margin-bottom:10px;
+  text-align:center;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+
+/* floating code particles */
+.particle{
+  position:absolute;
+  font-size:14px;
+  color:#1f6feb;
+  opacity:0.6;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh)}
+  to{transform:translateY(110vh)}
+}
+
+.matrix{
+  position:absolute;
+  color:#ff2d75;
+  opacity:0.15;
+  font-size:20px;
+  animation:rise linear infinite;
+}
+
+@keyframes rise{
+  from{transform:translateY(110vh)}
+  to{transform:translateY(-10vh)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="terminal">
+<div id="binary">
+01001000 01000101 01000001 01010010 01010100
+00100000 01000110 01001111 01010010
+00100000 01001101 01000001 01011001 01001100 01000001
+
+   01100010 01101001 01101110 01100001 01110010 01111001
+  01101000 01100101 01100001 01110010 01110100
+</div>
+</div>
+
+<script>
+const t = document.getElementById("terminal");
+
+const text = [
+"booting tkj_mode.exe ...",
+"loading feeling.dll ...",
+"connection to Mayla established ✔",
+"--------------------------------------",
+"halo Mayla 😄",
+"katanya anak TKJ tahan error",
+"tapi jangan jadi korban bug ya wkwk",
+"",
+"diagnosa sistem:",
+"kamu terlalu banyak senyum hari ini",
+"solusi: tambah tinggi dikit 🤏😆",
+"",
+"pesan rahasia:",
+"orang keren gak butuh effort berlebihan",
+"cukup jadi diri sendiri aja 😎",
+"--------------------------------------",
+"process finished without drama"
+];
+
+let i=0;
+
+function type(){
+  if(i < text.length){
+    const div = document.createElement("div");
+    div.className="line";
+    t.appendChild(div);
+
+    let j=0;
+    const interval = setInterval(()=>{
+      div.style.opacity=1;
+      div.textContent += text[i][j];
+      j++;
+
+      if(j >= text[i].length){
+        clearInterval(interval);
+        i++;
+        setTimeout(type, 350);
+      }
+    }, 38);
+  }else{
+    const c = document.createElement("span");
+    c.className="cursor";
+    c.innerHTML=" ";
+    t.appendChild(c);
+  }
+}
+
+type();
+
+function particle(){
+  const p = document.createElement("div");
+  p.className="particle";
+  p.textContent = ["0","1","{ }",";","//","< >"][Math.floor(Math.random()*6)];
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*5+5)+"s";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),9000);
+}
+
+setInterval(particle,300);
+
+function matrix(){
+  const m = document.createElement("div");
+  m.className="matrix";
+  m.textContent="♥";
+  m.style.left=Math.random()*100+"vw";
+  m.style.animationDuration=(Math.random()*6+6)+"s";
+  document.body.appendChild(m);
+  setTimeout(()=>m.remove(),12000);
+}
+
+setInterval(matrix,800);
+</script>
+
+</body>
+</html>
