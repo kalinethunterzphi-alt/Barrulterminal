@@ -18,6 +18,30 @@ body{
   overflow:hidden;
 }
 
+/* FOTO MAYLA DI KANAN */
+#mayla-photo{
+  position:absolute;
+  right:40px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+}
+
+#mayla-photo img{
+  width:200px;
+  border-radius:12px;
+  border:2px solid #1f6feb;
+  box-shadow:0 0 20px rgba(31,111,235,0.6);
+  filter:brightness(0.9);
+  transition:0.3s;
+}
+
+#mayla-photo img:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 30px rgba(255,45,117,0.8);
+}
+
+/* TERMINAL UTAMA */
 #terminal{
   width:90%;
   max-width:720px;
@@ -47,7 +71,7 @@ body{
   50%{opacity:0}
 }
 
-/* BINARY HEART FIX */
+/* BINARY HEART */
 #binary{
   color:#ff2d75;
   text-shadow:0 0 10px #ff2d75;
@@ -67,7 +91,7 @@ body{
   50%{transform:scale(1.05)}
 }
 
-/* floating code particles */
+/* efek background */
 .particle{
   position:absolute;
   font-size:14px;
@@ -98,6 +122,10 @@ body{
 
 <body>
 
+<div id="mayla-photo">
+  <img src="mayla.jpg">
+</div>
+
 <div id="terminal">
 
 <div id="binary">
@@ -117,7 +145,6 @@ body{
          10
 </pre>
 </div>
-
 
 <script>
 const t = document.getElementById("terminal");
