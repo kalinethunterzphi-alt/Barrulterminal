@@ -47,14 +47,19 @@ body{
   50%{opacity:0}
 }
 
-/* binary heart */
+/* BINARY HEART FIX */
 #binary{
   color:#ff2d75;
-  opacity:0.9;
-  text-shadow:0 0 8px #ff2d75;
+  text-shadow:0 0 10px #ff2d75;
   margin-bottom:10px;
   text-align:center;
   animation:pulse 2s infinite;
+}
+
+#binary pre{
+  font-family: Consolas, monospace;
+  letter-spacing:2px;
+  line-height:1.1;
 }
 
 @keyframes pulse{
@@ -94,6 +99,7 @@ body{
 <body>
 
 <div id="terminal">
+
 <div id="binary">
 <pre>
       00110000001100
@@ -108,7 +114,6 @@ body{
         0010
 </pre>
 </div>
-
 
 <script>
 const t = document.getElementById("terminal");
@@ -187,6 +192,8 @@ function matrix(){
 
 setInterval(matrix,800);
 </script>
+
+</div>
 
 </body>
 </html>
